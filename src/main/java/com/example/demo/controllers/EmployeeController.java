@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,7 +46,7 @@ public class EmployeeController {
 				.collect(Collectors.toList());
 
 		return CollectionModel.of(employees,
-				linkTo(methodOn(EmployeeController.class).all()).withSelfRel());
+				linkTo(methodOn(OrderController.class).all()).withSelfRel());
 	}
 	// end::get-aggregate-root[]
 
